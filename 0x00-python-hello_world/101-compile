@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import compileall
+import os
+
+myFile = os.getenv('PYFILE')
+
+if myFile:
+    finFile = myFile + 'c'
+    compileall.compile_file(myFile, force = True, optimize = 2)
+
+    if os.path.isfile(finFile):
+        os.rename(finFile, finFile.replace('.pyc', c))
