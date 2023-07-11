@@ -7,7 +7,6 @@ def xUpper(i):
         return (my_C)
 
 
-
 def uppercase(str):
     res = ""
     for i in str:
