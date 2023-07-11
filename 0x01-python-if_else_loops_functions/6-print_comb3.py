@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-def _combinations(_min, _max):
-    for i in range(_min, _max):
-        
+for i in range(1, 90):
+    if i // 10 < i % 10:
+        print("{:02d}".format(i), end='\n' if i == 89 else ", ")
+print()
