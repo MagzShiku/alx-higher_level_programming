@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-for j in range(ord('a'), ord('z') + 1):
-    print(f"{chr(j)}", end='')
+print(''.join(chr(i) for i in range(ord('a'), ord('z') + 1)), end='')
