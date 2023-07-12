@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-import py_compile
-import os
+#!/bin/bash
+file_python = "${PYFILE}"
+if [ -z "$file_python" ]; then
+    exit 1
+fi
 
-_file = os.environ.get('PYFILE')
-if not _file:
-    exit(1)
-
-res_file = f'{_file}c'
-py_compile.compile(_file, cfile=res_file, optimize=2)
-print(f"Compiling {_file} ...")
+res_file="${file_python%.*}.pyc"
+python -m compileall "$file_python" && "$file_python"c "res_file"
