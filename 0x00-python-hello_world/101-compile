@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-import compileall
+import py_compile
 import os
 
-myFile = os.getenv('PYFILE')
+_file = os.environ.get('PYFILE')
+if not _file:
+    exit(1)
 
-if myFile:
-    finFile = myFile + 'c'
-    compileall.compile_file(myFile, force = True, optimize = 2)
-
-    if os.path.isfile(finFile):
-        os.rename(finFile, finFile.replace('.pyc', c))
+res_file = f'{_file}c'
+py_compile.compile(_file, cfile=res_file, optimize=2)
+print(f"Compiling {_file} ...")
