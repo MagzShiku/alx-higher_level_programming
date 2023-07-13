@@ -7,7 +7,7 @@ if __name__ == "__main__":
         print("{} arguments.".format(total_args))
     elif total_args == 1:
         print("{} argument:".format(total_args))
-    else:   
+    else:
         print("{} arguments:".format(total_args))
 
     for i in range(total_args):
