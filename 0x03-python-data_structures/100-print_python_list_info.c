@@ -4,20 +4,38 @@ void print_python_list_info(PyObject *p)
 {
 	int a;
 	int i;
-	int _mem;
+	Py_ssize_t _mem;
 	PyObject *_object;
+	char *buf;
+	Py_ssize_t size;
+	PyObject *str;
 
 	a = PyList_Size(p);
-	_mem = ((PylistObject *) p)->allocated;
+	_mem = ((PyListObject *) p)->allocated;
 
 	printf("[*] Size of the Python List = %d\n", a);
-	printf("[*] Allocated = %d\n", _mem);
+	printf("[*] Allocated = %ld\n", _mem);
 
 	i = 0;
 	while (i < a)
 	{
-		_obj = PyList_GetItem(p, i);
-		printf("Element %ld: %s\n", i, Py_Type(item)->tp_name):
+		_object = PyList_GetItem(p, i);
+		printf("Element %d: %s\n", i, Py_TYPE(_object)->tp_name);
+		
+		if (PyBytes_Check(_object))
+		{
+			printf(" Value: ");
+			PyBytes_AsStringAndSize(_object, &buf, &size);
+			printf("%s\n", buf);
+		}
+		else if (PyUnicode_Check(_object))
+		{
+			printf(" Value: ");
+			str = PyUnicode_AsUTF8String(_object);
+			/*PyObject_Print(_object, stdout, 0);*/
+			printf("%s\n", PyBytes_AsString(str));
+			Py_DECREF(str);
+		}
 		i++;
 	}
 }
