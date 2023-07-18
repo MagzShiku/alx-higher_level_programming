@@ -1,20 +1,23 @@
+#define _XOPEN_SOURCE 700
+
+#include <time.h>
 #include <stdio.h>
 #include <Python.h>
 void print_python_list_info(PyObject *p)
 {
 	int a;
 	int i;
-	Py_ssize_t _mem;
+	/*Py_ssize_t _mem;*/
 	PyObject *_object;
 	char *buf;
 	Py_ssize_t size;
 	PyObject *str;
 
 	a = PyList_Size(p);
-	_mem = ((PyListObject *) p)->allocated;
+	/*_mem*/size = ((PyListObject *) p)->allocated;
 
 	printf("[*] Size of the Python List = %d\n", a);
-	printf("[*] Allocated = %ld\n", _mem);
+	printf("[*] Allocated = %ld\n", /*_mem*/size);
 
 	i = 0;
 	while (i < a)
