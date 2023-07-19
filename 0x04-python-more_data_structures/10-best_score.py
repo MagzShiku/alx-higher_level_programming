@@ -13,4 +13,3 @@ def best_score(a_dictionary):
         if a_dictionary[n[i]] == highest_value:
             return (n[i])
         i += 1
-
