@@ -2,7 +2,7 @@
 def uniq_add(my_list=[]):
     ints_in_list = set()
     idx = 0
-    while idx  < len(my_list):
+    while idx < len(my_list):
         if my_list[idx] not in ints_in_list:
             ints_in_list.add(my_list[idx])
         idx += 1
