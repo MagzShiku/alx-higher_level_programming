@@ -3,5 +3,5 @@
 
 
 class Square:
-    """Here we through in pass as told in the question"""
+    """Here we throw in pass as told in the question"""
     pass
