@@ -36,13 +36,16 @@ class Square:
 
     @property
     def position(self):
+        """
+            creates a getter method
+        """
         return self.__position
 
     @position.setter
-    """
-        creates setter method
-    """
     def position(self, value):
+        """
+            creates a setter method
+        """
         if not isinstance(value, tuple) or len(value)
         != 2 or not isinstance(value[0], int) or
         not isinstance(value[1], int) or value[0] < 0 or value[1] < 0:
@@ -52,9 +55,15 @@ class Square:
             self.__position = value
 
     def area(self):
+        """
+            defines an area method
+        """
         return self.__size ** 2
 
     def my_print(self):
+        """
+            prints a square
+        """
         if self.__size == 0:
             print()
 
