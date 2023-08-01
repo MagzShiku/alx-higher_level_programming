@@ -11,10 +11,8 @@
 class Square:
     """We initialize the square"""
 
-
     def __init__(self, size=0):
         """ int is the new square"""
-
 
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
