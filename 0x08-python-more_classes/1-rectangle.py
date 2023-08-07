@@ -10,6 +10,10 @@
 
 
 class Rectangle:
+    """
+        __init__ initializes the width and height using the
+        provided argiments, default to 0, if not specified
+    """
     def __init__(self, width=0, height=0):
         """
             __init__ initializes the width and height using the
