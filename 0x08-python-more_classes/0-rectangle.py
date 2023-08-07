@@ -6,4 +6,8 @@
 
 
 class Rectangle:
+    """
+        this will be a blank class in our case. We
+        were just calling the Rectangle
+    """
     pass
