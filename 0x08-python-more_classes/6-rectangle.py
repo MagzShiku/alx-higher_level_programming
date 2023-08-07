@@ -22,7 +22,8 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+
+        type(self).number_of_instances += 1
         """
             number_of_instances chacks the number of instances
             of the rectangle class that has been created
