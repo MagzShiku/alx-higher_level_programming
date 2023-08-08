@@ -2,7 +2,7 @@
 
 """
     this function has no class or object attribute
-    it prevents the user from dynamically creating a new instance 
+    it prevents the user from dynamically creating a new instance
     attribute. Except if the new instance attribure is called first_name
 
     in this function, we do not import any module
