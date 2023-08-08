@@ -1,0 +1,54 @@
+This is a doctest file to test the matrix_divided() function.
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# tese: divide by +ve integer value
+>>> matrix = [
+...	[1, 2, 3],
+...	[4, 5, 6]
+... ]
+>>> result = matrix_divided(matrix, 3)
+>>> result
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# check if original matrix is the same and mot changed
+>>> matrix
+[[1, 2, 3], [4, 5, 6]]
+
+# tese 2 - divide the matrix with a float
+>>> matrix = [
+...	[8, 12, 16],
+...	[20, 24, 28]
+... ]
+>>> result = matrix_divided(matrix, 2.5)
+>>> result
+[[1.6, 3.2, 4.8], [6.4, 8.0, 9.6]]
+
+# test 3 - by dividing the matrix by 1, it should return the same matrix
+>>> matrix = [
+...	[3, 5],
+...	[9, 12]
+... ]
+>>> result = matrix_divided(matrix, 1)
+>>> result
+[[1.0, 2.0], [3.0, 4.0]]
+
+# test 4 - when we divide matrix by 0, it should raise a ZeroDivision Error
+>>> matrix = [
+...     [3, 5],
+...     [9, 12]
+... ]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+	...
+ZeroDivisionError: division by zero
+
+# Test 5 - when we divide the matrix containing non_integer/float elements
+>>> matrix = [
+...	[3, 5],
+...     [9, 'z']
+... ]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+	...
+TypeError: Each element of the matrix must be an integer or float
