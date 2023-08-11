@@ -16,11 +16,10 @@ def text_indentation(text):
         raise TypeError("text must be a string")
 
     text = text.strip()
-
     punctuations = [".", "?", ":"]
+
     for p in punctuations:
         text = text.replace(p, p + "\n")
-
     lines = [line.strip() for line in text.split("\n")]
     for i, line in enumerate(lines):
         print(line)
