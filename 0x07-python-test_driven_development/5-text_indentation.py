@@ -7,6 +7,7 @@
 
 
 def text_indentation(text):
+    """we define the function here, then the error message"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
