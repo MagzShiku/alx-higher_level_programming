@@ -8,7 +8,7 @@
 
 
 class MyList(list):
-    """inherit list class and add to new method print"""
+    """new method print"""
     def print_sorted(self):
         """print the sorted list in ascending order"""
         print(sorted(self))
