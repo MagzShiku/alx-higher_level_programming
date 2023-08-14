@@ -1,6 +1,13 @@
+this is my test for for 1-my_list.py
+
+_____________________________________________
+
 TestCase 0:
+
+
 >>> MyList = _import_('1-my_list').MyList
 >>>
+
 -------------------------------------------
 
 TestCase 1:
