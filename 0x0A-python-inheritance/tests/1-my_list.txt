@@ -1,0 +1,27 @@
+# Test case 1
+# Creat empty list and print
+my_list = MyList()
+print(my_list)
+
+# Test case 2
+# Add elements to the list and print it
+my_list.append(5)
+my_list.append(3)
+my_list.append(8)
+my_list.append(1)
+print(my_list)
+
+# Test case 3
+# Sort list and printing it
+my_list.print_sorted()
+
+# Test case 4
+# Sort the list again and printing it
+my_list.print_sorted()
+
+# Test case 5
+# if you add a string to the list: A TypeError will be raised
+try:
+    my_list.append("magdaline")
+except TypeError as e:
+    print(e)
