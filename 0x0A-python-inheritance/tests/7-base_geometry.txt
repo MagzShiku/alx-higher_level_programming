@@ -1,0 +1,39 @@
+Test for 7-base_geometry.py
+-------------------------------------------
+
+TestCase 1: Valid integer values
+
+>>> BaseGeometry = _import_('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>>
+
+TestCase 2: Invalid integer value - string
+
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+TestCase 3: Invalid integer value - zero
+
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+>>>
+
+TestCase 4: Invalid integer value - negative
+
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+>>>
+
+-------------------------------------------
