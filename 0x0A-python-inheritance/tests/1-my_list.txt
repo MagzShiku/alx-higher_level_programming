@@ -1,27 +1,46 @@
-# Test case 1
-# Creat empty list and print
-my_list = MyList()
-print(my_list)
+"""
+This module tests the Mylist class.
 
-# Test case 2
-# Add elements to the list and print it
-my_list.append(5)
-my_list.append(3)
-my_list.append(8)
-my_list.append(1)
-print(my_list)
+>>> my_list = Mylist()
+>>> my_list
+[]
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> my_list
+[1, 4, 2, 3, 5]
+>>> my_list.append("hello")
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'str' and 'int'
+>>> my_list.clear()
+>>> my_list
+[]
+>>> my_list.print_sorted()
+[]
+>>> my_list.append(5)
+>>> my_list.append(3)
+>>> my_list.append(8)
+>>> my_list.append(1)
+>>> my_list
+[5, 3, 8, 1]
+>>> my_list.print_sorted()
+[1, 3, 5, 8]
+>>> my_list.print_sorted()
+[1, 3, 5, 8]
+>>> my_list2 = Mylist([5, 3, 8, 1, 5, 8, 3])
+>>> my_list2
+[5, 3, 8, 1, 5, 8, 3]
+>>> my_list2.print_sorted()
+[1, 3, 3, 5, 5, 8, 8]
+"""
 
-# Test case 3
-# Sort list and printing it
-my_list.print_sorted()
-
-# Test case 4
-# Sort the list again and printing it
-my_list.print_sorted()
-
-# Test case 5
-# if you add a string to the list: A TypeError will be raised
-try:
-    my_list.append("magdaline")
-except TypeError as e:
-    print(e)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
