@@ -9,16 +9,14 @@
 
 def class_to_json(obj):
     """returns dictionary with what I have named  above"""
-    if hasattr(obj, '__dict__'):
-        """checking if it has an attribute of __dict__"""
-        checked_obj = obj.__dict__.copy()
-        # makes a copy of the obj with the attributes
+    if not isinstance(obj, object):
+        return obj
 
-        # iterate through the key/value pairs
-        for main_key, main_value in checked_obj.items():
-            if type(main_value) not \
-                    in (int, float, bool, str, list, dict, type(None)):
-                checked_obj = str(main_value)
-        return main_value
-    else:
-        return {}
+    json_obj = {}
+
+    for key_pair, value_pair in obj.__dict__.items():
+        if isinstance(value_pair, (list, dict, str, int, bool)):
+            json_obj[key_pair] = value_pair
+        elif isinstance(value_pair, object):
+            json_obj[kay_pair] = class_to_json(value_pair)
+    return json_obj
