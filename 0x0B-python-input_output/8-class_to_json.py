@@ -15,7 +15,7 @@ def class_to_json(obj):
 
     json_obj = {}
     # initialized to store the converted data
-    
+
     # iterate through the key_value pairs of the obj to get the data types
     # if it has the data structure, it is added to json_obj directory
     for key_pair, value_pair in obj.__dict__.items():
