@@ -6,7 +6,9 @@
 
 
 class Base:
-    """here we define the class. It worksa s the main file i think"""
+    """
+    here we define the class. It worksa s the main file i think
+    """
     __nb_objects = 0
     """
         this is a provateclass attribute method
