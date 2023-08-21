@@ -1,22 +1,23 @@
 #!/bin/python3
 """
-this base class manages the id attribute in my future classes
-and to avoind duplicating the same code and some bugs by extension
+    this base class manages the id attribute in my future classes
+    and to avoind duplicating the same code and some bugs by extension
 """
 
 
 class Base:
+    """here we define the class. It worksa s the main file i think"""
     __nb_objects = 0
     """
-    this is a provateclass attribute method
-    this keeps track of the number of objectc created from this class
+        this is a provateclass attribute method
+        this keeps track of the number of objectc created from this class
     """
     def __init__(self, id=None):
         """we initialize method with init, and set id to None as default"""
         if id is not None:
             """
-            assigns the value of id to a public instance attribute self.id
-            otherwise, it increments it, iterating through the values
+                assigns the value of id to a public instance attribute self.id
+                otherwise, it increments it, iterating through the values
             """
             self.id = id
         else:
