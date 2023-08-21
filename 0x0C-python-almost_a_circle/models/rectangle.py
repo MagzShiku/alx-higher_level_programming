@@ -32,6 +32,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+        self.id = id
         """we give private attributes to the parameters"""
 
     @property
@@ -84,3 +85,11 @@ class Rectangle(Base):
 
     def area(self):
         return self.width * self.height
+
+    def display(self):
+        for n in range(self.height):
+            print("#" * self.width)
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+                self.y, self.width, self.height)
