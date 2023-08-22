@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
     this base class manages the id attribute in my future classes
     and to avoind duplicating the same code and some bugs by extension
