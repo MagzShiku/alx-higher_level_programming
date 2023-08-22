@@ -8,35 +8,32 @@ i have been given the constructor method as well
 """
 
 
-"""
-we shall initialise 2 variables with __import__
-"""
-
-"""
-module_name = 'module.base'
-class_name = 'Base'
-
-module = __import__(module_name, fromlist=[class_name])
-Base = getattr(module, class_name)
-"""
-
-
 from models.base import Base
-"""inherit from base file"""
+"""
+inherit from base file
+"""
 
 
 class Rectangle(Base):
-    """this helps us make a rectangle"""
+    """
+    this helps us make a rectangle
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """this initiates the parameters with self"""
+        """
+        this initiates the parameters with self
+        """
         super().__init__(id)
-        """the super calls the method from the parent class"""
+        """
+        the super calls the method from the parent class
+        """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
         self.id = id
-        """we give private attributes to the parameters"""
+        """
+        we give private attributes to the parameters
+        """
 
     @property
     def width(self):
@@ -47,6 +44,9 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        """
+        this method sets the lavlue to the width
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -55,10 +55,16 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """
+        sets the height of the rectangle
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """
+        This gives the value of the height
+        """
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -67,10 +73,16 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """
+        sets the propoerty of the x parameter
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """
+        sets the value to the x parameter
+        """
         if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -79,10 +91,16 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """
+        defines the parameter y
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """
+        sets value to the parameter y
+        """
         if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -90,15 +108,24 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """
+        this is the formulat to get the area of the rectangle
+        """
         return self.width * self.height
 
     def display(self):
+        """
+        this displays the rectangle as a # element
+        """
         for n in range(self.y):
             print()
         for n in range(self.height):
             print(" " * self.x + "#" * self.width)
 
     def update(self, *args):
+        """
+        this module updats the values
+        """
         if len(args) >= 1:
             self.id = args[0]
         if len(args) >= 2:
@@ -111,6 +138,9 @@ class Rectangle(Base):
             self.y = args[4]
 
     def __str__(self):
+        """
+        this method reprsents the rectangle as a string
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.x, self.y, self.width, self.height
                 )
