@@ -1,7 +1,4 @@
-#!/usr/bin/puthon3
-
-from models.base import Base
-
+#!/usr/bin/python3
 
 """
 this class inherits from Base
@@ -24,10 +21,16 @@ Base = getattr(module, class_name)
 """
 
 
+from models.base import Base
+"""inherit from base file"""
+
+
 class Rectangle(Base):
-    """this helps us make a triangle"""
+    """this helps us make a rectangle"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """this initiates the parameters with self"""
         super().__init__(id)
+        """the super calls the method from the parent class"""
         self.width = width
         self.height = height
         self.x = x
@@ -37,6 +40,9 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """
+        this gives the width a property
+        """
         return self.__width
 
     @width.setter
