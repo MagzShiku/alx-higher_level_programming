@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python30x0C. Python - Almost a circle
 
 """
 this class inherits from Base
@@ -122,20 +122,38 @@ class Rectangle(Base):
         for n in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-    def update(self, *args):
+            """
+                def update(self, *args):
+        
+                this module updats the values
+        
+                if len(args) >= 1:
+                self.id = args[0]
+                if len(args) >= 2:
+                self.width = args[1]
+                if len(args) >= 3:
+                self.height = args[2]
+                if len(args) >= 4:
+                self.x = args[3]
+                if len(args) >= 5:
+                self.y = args[4]
+            """ 
+
+    def update(self, *args, **kwargs):
         """
-        this module updats the values
+        this upadtes the key value elemets
+        iterates through the kwatgs directory
         """
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.width = args[1]
-        if len(args) >= 3:
-            self.height = args[2]
-        if len(args) >= 4:
-            self.x = args[3]
-        if len(args) >= 5:
-            self.y = args[4]
+        if args:
+            kw_attr = ["id", "width", "height", "x", "y"]
+            for attr, val in zip(attrs, args):
+                setattr(self, attr, val)
+            else:
+                for key, val in kwargs.items():
+                    if key == "id":
+                        super().__init__(val)
+                    else:
+                        setattr(self, key, val)
 
     def __str__(self):
         """
