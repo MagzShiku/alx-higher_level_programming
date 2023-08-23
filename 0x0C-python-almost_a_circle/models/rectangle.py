@@ -141,5 +141,4 @@ class Rectangle(Base):
         """
         this method reprsents the rectangle as a string
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - \
-                {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
