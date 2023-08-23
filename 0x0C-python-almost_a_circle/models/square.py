@@ -24,6 +24,20 @@ class Square(Rectangle):
         """
         this super method calls the Rectangle
         """
+    @property
+    def size(self):
+        """
+        gives a property to the width
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        gives a value to the width size and height
+        """
+        self.width = value
+        self.heigt = value
 
     def __str__(self):
         """
@@ -38,7 +52,7 @@ class Square(Rectangle):
         my_attribute = ["id", "size", "x", "y"]
         if args and len(args) != 0:
             for i in range(len(args)):
-                setattr(self, attrs[i], args[i])
+                setattr(self, my_attribute[i], args[i])
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
