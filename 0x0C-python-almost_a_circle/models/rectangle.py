@@ -30,9 +30,15 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-        self.id = id
+        if id is None:
+            self.id = Rectangle.count
+            Rectangle.count += 1
+        else:
+            self.id = id
         """
         we give private attributes to the parameters
+        here we count the number of instances
+        of the rectangle
         """
 
     @property
@@ -161,3 +167,14 @@ class Rectangle(Base):
         """
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - \
 {self.width}/{self.height}"
+
+    def to_dictionary(self):
+        """
+        returns the dictionary representation of the
+        rectangle
+        """
+        return {"x": self.x, "y": self.y,
+                "id": self.id, "height": self.height, "width": self.width}
+
+
+Rectangle.count = 1
