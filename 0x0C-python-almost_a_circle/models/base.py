@@ -58,3 +58,14 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create a dummy instance with mandatory attributes
+        Call update method to apply real values
+        """
+        new_instance = cls(1, 1)
+        new_instance.update(**dictionary)
+        return new_instance
+        # new_instance is the dummy instance created
