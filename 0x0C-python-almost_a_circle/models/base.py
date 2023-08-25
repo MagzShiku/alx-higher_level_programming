@@ -5,6 +5,7 @@
 """
 
 import json
+import csv
 
 
 class Base:
@@ -92,3 +93,41 @@ class Base:
                 return no_of_instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        this serealizes in csv
+        """
+        my_file = cls.__name__ + ".csv"
+        with open(my_file, mode='w', newline='') as fl:
+            edittor = csv.writer(fl)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    row = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                elif cls.__name__ == "Square":
+                    row = [obj.id, obj.size, obj.x, obj.y]
+                edittor.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        this deseralises in csv
+        """
+        my_file = cls.__name__ + ".csv"
+        try:
+            with open(my_file, mode='r') as fl:
+                reader = csv.reader(fl)
+                if cls.__name__ == "Rectangle":
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == "Square":
+                    fields = ['id', 'size', 'x', 'y']
+                on_inst = []
+                for row in reader:
+                    info = {field: int(row[i]) for i, field in enumerate(fields)}
+                    _inst = cls.create(**info)
+                    on_inst.append(_inst)
+                return on_inst
+        except FileNotFoundError:
+            return []
+
