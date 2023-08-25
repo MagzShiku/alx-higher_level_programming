@@ -65,7 +65,30 @@ class Base:
         Create a dummy instance with mandatory attributes
         Call update method to apply real values
         """
-        new_instance = cls(1, 1)
-        new_instance.update(**dictionary)
+        if cls.__name__ == "Rectangle":
+            new_instance = cls(1, 1)
+        elif cls.__name__ == "Square":
+            new_instance = cls(1)
+        else:
+            new_instance = None
+
+        if new_instance is not None:
+            new_instance.update(**dictionary)
         return new_instance
-        # new_instance is the dummy instance created
+        # new_instance is the dummy instance createid
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        returns a list of instances:
+        """
+        my_file = cls.__name__ + ".json"
+        try:
+            with open(my_file, 'r') as fl:
+                json_info = fl.read()
+                instance_info = cls.from_json_string(json_info)
+                no_of_instances = [Base.create(**data) for data in instance_info]
+
+                return no_of_instances
+        except FileNotFoundError:
+            return []
