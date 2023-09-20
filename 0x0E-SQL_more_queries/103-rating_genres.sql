@@ -2,9 +2,12 @@
 -- Each record should display: tv_genres.name - rating sum
 -- sorted in descending order by their rating
 
-SELECT tv_genres.name, SUM(tv_show_ratings.rate) AS rating_sum
-FROM tv_genres
-LEFT JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
-LEFT JOIN tv_show_ratings ON tv_show_genres.show_id = tv_show_ratings.show_id
-GROUP BY tv_genres.name
+SELECT g.name, SUM(r.rate) AS rating_sum
+FROM tv_genres AS g
+LEFT JOIN (
+	SELECT sg.genre_id, sr.rate
+	FROM tv_show_genres AS sg
+	LEFT JOIN tv_show_ratings AS sr ON sg.show_id = sr.show_id
+) AS r ON g.id = r.genre_id
+GROUP BY g.name
 ORDER BY rating_sum DESC;
