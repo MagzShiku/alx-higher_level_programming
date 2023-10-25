@@ -3,16 +3,15 @@
 connects to a MySQL database and lists all states from the hbtn_0e_0_usa table
 """
 
-"""Import error message and db"""
 import MySQLdb
 import sys
 
-# collect arguments from cmd line
+"""collect arguments from cmd line"""
 mysql_user = sys.argv[1]
 mysql_password = sys.argv[2]
 database_name = sys.argv[3]
 
-# connect to server
+"""connect to server"""
 try:
     """
     connects to new server
@@ -26,16 +25,16 @@ try:
     )
     cursor = db.cursor()
 
-    # exec querry of mysql to fetch states
+    """ exec querry of mysql to fetch states"""
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    """exec querry of mysql to fetch states"""
+    
 
-    # show what you have fetched
+    """show what you have fetched"""
     fetched = cursor.fetchall()
     for line in fetched:
         print(line)
 
-    # close connection between cursor and data base
+    """close connection between cursor and data base"""
     cursor.close()
     db.close()
 
