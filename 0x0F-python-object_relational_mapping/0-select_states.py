@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-
 """
 connects to a MySQL database and lists all states from the hbtn_0e_0_usa table
 """
 
+"""Import error message and db"""
 import MySQLdb
 import sys
 
@@ -14,6 +14,9 @@ database_name = sys.argv[3]
 
 # connect to server
 try:
+    """
+    connects to new server
+    """
     db = MySQLdb.connect(
             host='localhost',
             port=3306,
@@ -25,6 +28,7 @@ try:
 
     # exec querry of mysql to fetch states
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    """exec querry of mysql to fetch states"""
 
     # show what you have fetched
     fetched = command.fetchall()
