@@ -31,8 +31,9 @@ if __name__ == "__main__":
         """
         Carry out the SQL query to fetch states where name matches the argument
         """
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-        cursor.execute(query, (state_name,))
+        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id \
+                ASC".format(state_name)
+        cursor.execute(query)
 
         """
         Show the fetched results
