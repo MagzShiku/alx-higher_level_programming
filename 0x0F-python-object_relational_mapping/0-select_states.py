@@ -31,13 +31,13 @@ try:
     """exec querry of mysql to fetch states"""
 
     # show what you have fetched
-    fetched = command.fetchall()
+    fetched = cursor.fetchall()
     for line in fetched:
         print(line)
 
     # close connection between cursor and data base
     cursor.close()
-    bd.close()
+    db.close()
 
 except MySQLdb.Error as e:
     print("Error connecting to MySQL database:", str(e))
