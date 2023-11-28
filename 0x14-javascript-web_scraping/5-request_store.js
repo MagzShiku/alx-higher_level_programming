@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-// script that gets the contents of a webpage and stores it in a file.
-// import Request to manipulate file systems
+// Import necessary modules
 const request = require('request');
 const fs = require('fs');
 
@@ -9,20 +8,24 @@ const fs = require('fs');
 const url = process.argv[2];
 const filePath = process.argv[3];
 
-// pull request
+// Make a request to the specified URL
 request(url, (error, response, body) => {
-	// check for error
-	if (error) {
-		console.error('Error:', error);
-		return;
-	}
+  // Check for errors during the request
+  if (error) {
+    console.error(error);
+    return;
+  }
 
-	// Write body to file
-	fs.writeFile(filePath, body, 'utf8', (error) => {
-		if (error) {
-			console.error(error);
-		} else {
-			console.log(`Content successfully written to ${filePath}`);
-		}
-	});
+  // Write the content of the response to the specified file path
+  try {
+    fs.writeFile(filePath, body, 'utf8', (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(`Content successfully written to ${filePath}`);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
